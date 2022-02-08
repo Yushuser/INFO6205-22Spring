@@ -1,6 +1,5 @@
 package edu.northeastern.yushu;
 import java.util.*;
-
 import static edu.northeastern.yushu.Main.ListNodes.mergeKLists;
 
 public class Main {
@@ -9,7 +8,7 @@ public class Main {
 //  1.Add Two Numbers
         ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)) );
         ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)) );
-        Solve s1 = new Solve();
+        Solve1 s1 = new Solve1();
         ListNode result = s1.addTwoNumbers(l1, l2);
         System.out.print("1.Add Two Numbers: ");
         while (result != null) {
@@ -20,7 +19,7 @@ public class Main {
 //  2. Copy List with Random Pointer
         Node h=new Node(1);
         int[] arr=new int[2];
-        Node res=copyRandomList(h);
+        Node res=Solve2.copyRandomList(h);
         System.out.println("2.Copy List with Random Pointer : "+res.val);
 //  3. Merge k Sorted Lists
         ListNodes[] lists=new ListNodes[3];
@@ -37,7 +36,6 @@ public class Main {
 //  9. Next Greater Node In Linked List
 //  10.Remove Duplicates from Sorted List II
     }
-
     // 1.Add Two Numbers
     static class ListNode {
         int val;
@@ -52,27 +50,6 @@ public class Main {
             this.next = next;
         }
     }
-    static class Solve {
-        public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            ListNode head = new ListNode();
-            ListNode p = head;
-            int reminder = 0;
-            while (l1 != null || l2 != null || reminder != 0) {
-                if (l1 != null) {
-                    reminder += l1.val;
-                    l1 = l1.next;
-                }
-                if (l2 != null) {
-                    reminder += l2.val;
-                    l2 = l2.next;
-                }
-                p.next = new ListNode(reminder % 10);
-                p = p.next;
-                reminder = reminder / 10;
-            }
-            return head.next;
-        }
-    }
     //  2. Copy List with Random Pointer
     static class Node {
         int val;
@@ -83,23 +60,6 @@ public class Main {
             this.next = null;
             this.random = null;
         }
-    }
-    // Recursion Algorithm, use a map to record the node that we have already seen to avoid duplication
-    public static Node copyRandomList(Node head) {
-        Map<Node, Node> map = new HashMap<>();
-        // base case
-        if (head == null) {
-            return null;
-        }
-        if (map.containsKey(head)) {
-            return map.get(head);
-        }
-        // else : make a new copy of the current node
-        Node node = new Node(head.val);
-        map.put(head, node);
-        node.next = copyRandomList(head.next);
-        node.random = copyRandomList(head.random);
-        return node;
     }
     //3. Merge k Sorted Lists
     static class ListNodes {
