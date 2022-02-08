@@ -57,15 +57,21 @@ public class Main {
         }
         return ans;
     }
-
     //2. Single Element in a Sorted Array
     public static int singleNonDuplicate(int[] nums) {
-        for (int i = 0; i < nums.length - 1; i += 2) {
-            if (nums[i] != nums[i + 1]) {
-                return nums[i];
+        int l = 0, h = nums.length - 1;
+        while (l < h) {
+            int m = l + (h - l) / 2;
+            if (m % 2 == 1) {
+                m--;
+            }
+            if (nums[m] == nums[m + 1]) {
+                l = m + 2;
+            } else {
+                h = m;
             }
         }
-        return nums[nums.length - 1];
+        return nums[l];
     }
 
     //3. Find Minimum in Rotated Sorted Array
