@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 //  1.Add Two Numbers
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)) );
+        Solve1.ListNode l1 = new Solve1.ListNode(2, new ListNode(4, new Solve1.ListNode(3)) );
         ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)) );
         Solve1 s1 = new Solve1();
         ListNode result = s1.addTwoNumbers(l1, l2);
@@ -37,19 +37,6 @@ public class Main {
 //  10.Remove Duplicates from Sorted List II
     }
     // 1.Add Two Numbers
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {
-        }
-        ListNode(int val) {
-            this.val = val;
-        }
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
     //  2. Copy List with Random Pointer
     static class Node {
         int val;

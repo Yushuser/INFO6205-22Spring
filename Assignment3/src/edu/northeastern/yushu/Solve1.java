@@ -1,7 +1,14 @@
 package edu.northeastern.yushu;
 
 public class Solve1 {
-        public static Main.ListNode addTwoNumbers(Main.ListNode l1, Main.ListNode l2) {
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+        public static ListNode addTwoNumbers(Main.ListNode l1, Main.ListNode l2) {
             Main.ListNode head = new Main.ListNode();
             Main.ListNode p = head;
             int reminder = 0;
