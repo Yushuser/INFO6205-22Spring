@@ -11,6 +11,22 @@ public class Main {
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
+    static class Node {
+        int val;
+        Node next;
+        Node random;
+        public Node(int val) {
+            this.val = val;
+            this.next = null;
+            this.random = null;
+        }
+        Node() {
+        }
+        Node(int val, Node next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
     // 1.Add Two Numbers
     private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode();
@@ -32,22 +48,6 @@ public class Main {
         return head.next;
     }
     //  2. Copy List with Random Pointer
-    static class Node {
-        int val;
-        Node next;
-        Node random;
-        public Node(int val) {
-            this.val = val;
-            this.next = null;
-            this.random = null;
-        }
-        Node() {
-        }
-        Node(int val, Node next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
     Map<Node, Node> map = new HashMap<>();
     private Node copyRandomList(Node head) {
       // base case
