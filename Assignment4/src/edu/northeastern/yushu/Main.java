@@ -83,6 +83,7 @@ public class Main {
         }
         return head;
     }
+    //reverse linked list
     public ListNode reverse(ListNode head) {
         ListNode slow = null, fast = head;
         while (fast != null) {
@@ -127,10 +128,9 @@ public class Main {
         ListNode right = sortList(mid);
         return merge(left, right);
     }
-
     ListNode merge(ListNode list1, ListNode list2) {
-        ListNode dummyHead = new ListNode();
-        ListNode tail = dummyHead;
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
         while (list1 != null && list2 != null) {
             if (list1.val < list2.val) {
                 tail.next = list1;
@@ -143,29 +143,26 @@ public class Main {
             }
         }
         tail.next = (list1 != null) ? list1 : list2;
-        return dummyHead.next;
+        return dummy.next;
     }
-
     ListNode getMid(ListNode head) {
-        ListNode midPrev = null;
+        ListNode midP = null;
         while (head != null && head.next != null) {
-            midPrev = (midPrev == null) ? head : midPrev.next;
+            midP = (midP == null) ? head : midP.next;
             head = head.next.next;
         }
-        ListNode mid = midPrev.next;
-        midPrev.next = null;
+        ListNode mid = midP.next;
+        midP.next = null;
         return mid;
     }
     //6.Linked List Random Node
     class Solution {
         ListNode head;
         Random random;
-
         public Solution(ListNode head) {
             this.head = head;
             random = new Random();
         }
-
         public int getRandom() {
             int count = 1, select = 0;
             ListNode p = this.head;
