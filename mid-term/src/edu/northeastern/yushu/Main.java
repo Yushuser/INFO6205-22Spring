@@ -2,7 +2,7 @@ package edu.northeastern.yushu;
 
 import java.util.*;
 // Yushu Wu
-// NUID: 002108151
+// NUID: 002108151u
 public class Main {
     public static void main(String[] args) {
         int[] arr = {0, 1, 3, 50, 75};
@@ -10,35 +10,29 @@ public class Main {
     }
     // Question 1
     public static List<String> Question1(int[] arr, int lower, int upper) {
-        List<String> result = new LinkedList<String>();
-        if (arr.length == 0) {
-            findRange(result, lower, upper);
-            return result;
+        List<String> list = new ArrayList<>();
+        if (arr == null || arr.length == 0) {
+            addRange(list, lower, upper);
+            return list;
         }
-        if (arr[0] != Integer.MIN_VALUE) {
-            findRange(result, lower, arr[0] - 1);
-        }
-        for (int i = 0; i < arr.length - 1; i ++) {
-            if (arr[i] == arr[i+1]) {
-                continue;
-            }
-            findRange(result, arr[i] + 1, arr[i + 1] - 1);
-        }
-        if (arr[arr.length - 1] != Integer.MAX_VALUE) {
-            findRange(result, arr[arr.length - 1] + 1, upper);
-        }
+        addRange(list, lower, (long)arr[0] - 1);
 
-        return result;
+        for (int i = 1; i < arr.length; i++) {
+            addRange(list, (long)arr[i - 1] + 1, (long)arr[i] - 1);
+        }
+        addRange(list, (long)arr[arr.length - 1] + 1, upper);
+
+        return list;
     }
-    private static void findRange(List<String> result, int low, int up) {
-        if (low > up){
+    private static void addRange(List<String> list, long low, long up) {
+        if (low > up) {
             return;
         }
         if (low == up) {
-            result.add((low) + "");
+            list.add(low + "");
             return;
         }
-        result.add(low + "->" + up);
+        list.add(low + "->" + up);
     }
     // Question 2
     public static class ListNode {
