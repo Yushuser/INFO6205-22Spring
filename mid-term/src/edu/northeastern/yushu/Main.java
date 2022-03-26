@@ -1,7 +1,8 @@
 package edu.northeastern.yushu;
 
 import java.util.*;
-
+// Yushu Wu
+// NUID: 002108151
 public class Main {
     public static void main(String[] args) {
         int[] arr = {0, 1, 3, 50, 75};
