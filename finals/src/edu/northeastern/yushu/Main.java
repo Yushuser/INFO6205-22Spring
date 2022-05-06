@@ -6,11 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         // Question1:
-        System.out.println("==================== Question 1 ================");
+        System.out.println("==================== Question 1 ====================");
         System.out.println(compress("abc"));
         System.out.println(compress("aabccddddd"));
         // Question2:
-        System.out.println("==================== Question 2 ================");
+        System.out.println("==================== Question 2 ====================");
         char[][] grid1 = {
                 {'1','1','1','1','0'},
                 {'1','1','0','1','0'},
@@ -27,12 +27,12 @@ public class Main {
         };
         System.out.println(numIslands(grid2));
         // Question3:
-        System.out.println("==================== Question 3 ================");
+        System.out.println("==================== Question 3 ====================");
         System.out.println(groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
         System.out.println(groupAnagrams(new String[]{""}));
         System.out.println(groupAnagrams(new String[]{"a"}));
         // Question4:
-        System.out.println("==================== Question 4 ================");
+        System.out.println("==================== Question 4 ====================");
         TreeNode root1 = new TreeNode(6);
         root1.left = new TreeNode(2);
         root1.right = new TreeNode(8);
