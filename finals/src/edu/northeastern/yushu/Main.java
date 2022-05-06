@@ -36,7 +36,10 @@ public class Main {
         TreeNode root1 = new TreeNode(6);
         root1.left = new TreeNode(2);
         root1.right = new TreeNode(8);
+        root1.left.left = new TreeNode(0);
+        root1.left.right = new TreeNode(4);
         System.out.println(lowestCommonAncestor(root1, root1.left, root1.right).val);
+        System.out.println(lowestCommonAncestor(root1, root1.left, root1.left.right).val);
 
         TreeNode root2 = new TreeNode(2);
         root2.left = new TreeNode(1);
