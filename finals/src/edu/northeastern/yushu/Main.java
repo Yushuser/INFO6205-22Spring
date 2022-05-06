@@ -5,9 +5,45 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        // Question1:
+        System.out.println("==================== Question 1 ================");
+        System.out.println(compress("abc"));
+        System.out.println(compress("aabccddddd"));
+        // Question2:
+        System.out.println("==================== Question 2 ================");
+        char[][] grid1 = {
+                {'1','1','1','1','0'},
+                {'1','1','0','1','0'},
+                {'1','1','0','0','0'},
+                {'0','0','0','0','0'}
+        };
+        System.out.println(numIslands(grid1));
+
+        char[][] grid2 = {
+                {'1','1','0','0','0'},
+                {'1','1','0','0','0'},
+                {'0','0','1','0','0'},
+                {'0','0','0','1','1'}
+        };
+        System.out.println(numIslands(grid2));
+        // Question3:
+        System.out.println("==================== Question 3 ================");
+        System.out.println(groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
+        System.out.println(groupAnagrams(new String[]{""}));
+        System.out.println(groupAnagrams(new String[]{"a"}));
+        // Question4:
+        System.out.println("==================== Question 4 ================");
+        TreeNode root1 = new TreeNode(6);
+        root1.left = new TreeNode(2);
+        root1.right = new TreeNode(8);
+        System.out.println(lowestCommonAncestor(root1, root1.left, root1.right).val);
+
+        TreeNode root2 = new TreeNode(2);
+        root2.left = new TreeNode(1);
+        System.out.println(lowestCommonAncestor(root2, root2.left, root2).val);
     }
     // Question1:
-    public String compress(String str) {
+    public static String compress(String str) {
         if (str == null || str.length() == 0) {
             return str;
         }
@@ -32,7 +68,7 @@ public class Main {
         return sb.toString();
     }
     // Question2:
-    public int numIslands(char[][] grid) {
+    public static int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) {
             return 0;
         }
@@ -47,7 +83,7 @@ public class Main {
         }
         return island;
     }
-    public void dfs(char[][] grid, int r, int c) {
+    public static void dfs(char[][] grid, int r, int c) {
         int row = grid.length, col = grid[0].length;
         if (r < 0 || c < 0 || r >= row || c >= col || grid[r][c] == '0') {
             return;
@@ -59,7 +95,7 @@ public class Main {
         dfs(grid, r, c + 1);
     }
     // Question3:
-        public List<List<String>> groupAnagrams(String[] strs) {
+        public static List<List<String>> groupAnagrams(String[] strs) {
             Map<String, List<String>> map = new HashMap<String, List<String>>();
             for (String str : strs) {
                 char[] array = str.toCharArray();
@@ -72,7 +108,7 @@ public class Main {
             return new ArrayList<List<String>>(map.values());
         }
     // Question4:
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -90,7 +126,7 @@ public class Main {
             this.right = right;
         }
     }
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null)
             return null;
 
