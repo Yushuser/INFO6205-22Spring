@@ -8,7 +8,7 @@ public class Main {
         // Question1:
         System.out.println("==================== Question 1 ====================");
         System.out.println(compress("abc"));
-        System.out.println(compress("aabccddddd"));
+        System.out.println(compress("aabccddddde"));
         // Question2:
         System.out.println("==================== Question 2 ====================");
         char[][] grid1 = {
@@ -46,25 +46,23 @@ public class Main {
         System.out.println(lowestCommonAncestor(root2, root2.left, root2).val);
     }
     // Question1:
-    public static String compress(String str) {
+    public static String compress(String str){
         if (str == null || str.length() == 0) {
             return str;
         }
-        StringBuffer sb = new StringBuffer();
-        int count = 1;
-        char current = '1';
-        for (int i = 0; i < str.length() - 1; i++) {
-            current = str.charAt(i);
-            if (str.charAt(i) == str.charAt(i + 1)) {
-                count +=1;
-            } else {
-                sb.append(current);
-                sb.append(count);
-                count = 1;
+        int i = 0, count = 0;
+        StringBuilder sb = new StringBuilder();
+        while (count < str.length()) {
+            if (str.charAt(i) != str.charAt(count)) {
+                sb.append(str.charAt(i));
+                sb.append(count - i);
+                i = count;
             }
+            count++;
         }
-        sb.append(current);
-        sb.append(count);
+        sb.append(str.charAt(i));
+        sb.append(count - i);
+
         if (sb.length() >= str.length()) {
             return str;
         }
